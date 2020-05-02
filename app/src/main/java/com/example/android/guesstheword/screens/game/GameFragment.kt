@@ -35,12 +35,10 @@ import com.example.android.guesstheword.databinding.GameFragmentBinding
  */
 class GameFragment : Fragment() {
 
-    //The ViewModel
     private lateinit var viewModel: GameViewModel
-
-
     private lateinit var binding: GameFragmentBinding
 
+    //The ViewModel
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
@@ -68,7 +66,7 @@ class GameFragment : Fragment() {
             binding.wordText.text = newWord
         })
         viewModel.gameFinished.observe(this, Observer { hasGameFinished ->
-            if (hasGameFinished == true) {
+            if (hasGameFinished) {
                 gameFinished()
                 viewModel.onGameFinishComplete()
             }
